@@ -1,42 +1,86 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import MensageHomeForm from "../layout/MensagemHomeForm";
-import InputMensagemHome from "../layout/InputMensagemHome";
-import styles from "../../styles/Home.module.css"
+import { useNavigate } from "react-router-dom";
+// import MensageHomeForm from "../layout/MensagemHomeForm";
+// import InputMensagemHome from "../layout/InputMensagemHome";
+// import styles from "../../styles/Home.module.css"
+import { Link } from "react-router-dom";
+
 function Home() {
 
     const navigate = useNavigate();
 
-  
+
     return (
         <>
-            <section className={`${styles.container} border-black relative text-center justify-center items-center font-(family-name:<>)`}>
-
-                <h1 className="font-medium text-5xl">SentiLab</h1>
-                <p className="m-2 font-light tracking-wide italic">seu laboratório de sentimentos e emoções</p>
-                <button className={`${styles.btnClick} rounded-sm`} onClick={() => navigate("/login")}>Vamos lá</button>
-            </section>
-
-            <section id="sobre" className={`${styles.container_sobre} text-center justify-center items-center m-h-750`}>
-                <h2 className="font-medium text-3xl">Sobre nós</h2>
-                <p className="block text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sodales elementum felis, ac mattis urna vehicula eget. Donec a ex vel nisl maximus efficitur eu a ligula. Quisque molestie magna vitae est sodales dapibus. Etiam lacinia vel arcu vel pellentesque. Donec auctor augue lorem, vitae posuere dolor ullamcorper scelerisque. Nam aliquet sem mi, vel commodo est sollicitudin auctor. Proin vel tincidunt metus, vel bibendum ipsum. Nam scelerisque, ligula sodales fermentum volutpat, elit massa cursus orci, id efficitur lacus felis non justo. Nunc suscipit rutrum auctor. Etiam gravida, arcu at dapibus venenatis, velit lectus feugiat mi, sed lacinia est enim vitae magna. Donec consequat velit id augue pharetra efficitur.</p>
-            </section>
-            <section id="contato" className={`${styles.container} text-center justify-center items-center bg-white m-h-750`}>
-                <h2 className="font-medium  text-3xl">Entre em contato</h2>
-                <form action="" className="">
-                    <div className="">
-                        <InputMensagemHome
-                            type='email'
-                            name='email'
-                            placeholer='Informe seu melhor e-mail'
-                        />
-                        <MensageHomeForm
-                            name='mensage'
-                            placeholer='Escreva sua mensagem aqui'
-                        />
-                        <button className={`${styles.btnClick} rounded-sm`} onClick={()=>alert('Mensagem enviada')}>Enviar</button>
+            <main className="flex-1">
+                <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+                    <div className="container px-4 md:px-6">
+                        <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                            <div className="space-y-2">
+                                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Bem-vindo ao SentiLab</h1>
+                                <p className="max-w-[700px] text-muted-foreground md:text-xl italic tracking-wider">
+                                    Seu laboratório de sentimentos e emoções
+                                </p>
+                            </div>
+                            <div className="space-x-4">
+                                <button className="bg-black text-white p-1 rounded-sm" onClick={()=> navigate("/login")}>Começar Agora</button>
+                                <button className="border-1 p-1 rounded-sm">Saiba Mais</button>
+                            </div>
+                        </div>
                     </div>
-                </form>
-            </section>
+                </section>
+
+                <section id="sobre" className="w-full py-12 md:py-24 lg:py-32">
+                    <div className="container px-4 md:px-6">
+                        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+                            <div className="space-y-4">
+                                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Sobre Nossa Empresa</h2>
+                                <p className="text-muted-foreground md:text-lg">
+                                    O SentiLab nasceu com a missão de transformar a educação através da tecnologia e Inteligência Emocional. Oferecemos uma plataforma completa para professores compartilharem conteúdos e alunos acessarem atividades de forma organizada e intuitiva.
+                                </p>
+                                <p className="text-muted-foreground md:text-lg">
+                                    Nossa equipe é formada por educadores e desenvolvedores apaixonados por criar soluções que facilitam o processo de ensino e aprendizagem.
+                                </p>
+                            </div>
+                            <div className="flex items-center justify-center">
+                                <div className="rounded-lg bg-gray-200 w-full h-[300px] flex items-center justify-center">
+                                    <span className="text-muted-foreground">Imagem Ilustrativa</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="contato" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+                    <div className="container px-4 md:px-6">
+                        <div className="mx-auto max-w-2xl space-y-6">
+                            <div className="space-y-2 text-center">
+                                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Entre em Contato</h2>
+                                <p className="text-muted-foreground md:text-lg">
+                                    Tem alguma dúvida ou sugestão? Envie-nos uma mensagem.
+                                </p>
+                            </div>
+                            <div className="space-y-4">
+                                <div className="space-y-2">
+                                    <label htmlFor="email" className="text-sm font-medium leading-none border-1">
+                                        Email
+                                    </label>
+                                    <input id="email" placeholder="seu@email.com" type="email" />
+                                </div>
+                                <div className="space-y-2">
+                                    <label htmlFor="message" className="text-sm font-medium leading-none border-1">
+                                        Mensagem
+                                    </label>
+                                    <textarea id="message" placeholder="Digite sua mensagem aqui..." className="min-h-[150px]" />
+                                </div>
+                                <button className="w-full bg-black text-white rounded-sm" onClick={() => alert('Mensagem enviada')}>
+
+                                    Enviar Mensagem
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
         </>
     )
 }
