@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"
 export default function Footer() {
     return (
         <>
-            <footer className="w-full border-t py-6">
-                <div className="container flex flex-col items-center justify-center gap-4 md:flex-row md:justify-between">
+            <footer className="w-full py-6">
+                <div className="container flex flex-col items-center justify-center gap-4 md:flex-row md:justify-between" >
                     <p className="text-center text-sm text-muted-foreground">
                         &copy; {new Date().getFullYear()} SentiLab. Todos os direitos reservados.
                     </p>

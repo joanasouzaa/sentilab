@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 // import InputMensagemHome from "../layout/InputMensagemHome";
 // import styles from "../../styles/Home.module.css"
 import { Link } from "react-router-dom";
+import imagemHome from '../../images/inteligencia_emocional_educacao.png';
 
 function Home() {
 
@@ -12,7 +13,7 @@ function Home() {
     return (
         <>
             <main className="flex-1">
-                <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+                <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-600 justify-items-center">
                     <div className="container px-4 md:px-6">
                         <div className="flex flex-col items-center justify-center space-y-4 text-center">
                             <div className="space-y-2">
@@ -42,15 +43,15 @@ function Home() {
                                 </p>
                             </div>
                             <div className="flex items-center justify-center">
-                                <div className="rounded-lg bg-gray-200 w-full h-[300px] flex items-center justify-center">
-                                    <span className="text-muted-foreground">Imagem Ilustrativa</span>
-                                </div>
+
+                                    <img src={imagemHome} alt="Imagem de professora com livro mão, alunos sentados e na lousa escrio 'Emotional Intelligence'" className="rounded-lg w-full h-[400px] flex items-center justify-center" />
+
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <section id="contato" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+                <section id="contato" className="w-full py-12 md:py-24 lg:py-32 bg-gray-600 justify-items-center">
                     <div className="container px-4 md:px-6">
                         <div className="mx-auto max-w-2xl space-y-6">
                             <div className="space-y-2 text-center">
@@ -60,22 +61,17 @@ function Home() {
                                 </p>
                             </div>
                             <div className="space-y-4">
-                                <div className="space-y-2">
-                                    <label htmlFor="email" className="text-sm font-medium leading-none border-1">
+                                <div className="space-y-2 flex flex-col">
+                                    <label htmlFor="email" className="text-sm font-medium leading-none ">
                                         Email
                                     </label>
-                                    <input id="email" placeholder="seu@email.com" type="email" />
+                                    <input id="email" placeholder="seu@email.com" type="email" className="border-1"/>
                                 </div>
-                                <div className="space-y-2">
-                                    <label htmlFor="message" className="text-sm font-medium leading-none border-1">
-                                        Mensagem
-                                    </label>
-                                    <textarea id="message" placeholder="Digite sua mensagem aqui..." className="min-h-[150px]" />
+                                <div className="space-y-2 flex flex-col">
+                                    <label htmlFor="message" className="text-sm font-medium leading-none">Mensagem</label>
+                                    <textarea id="message" placeholder="Digite sua mensagem aqui..." className="min-h-[150px] border-1" />
                                 </div>
-                                <button className="w-full bg-black text-white rounded-sm" onClick={() => alert('Mensagem enviada')}>
-
-                                    Enviar Mensagem
-                                </button>
+                                <button className="w-full bg-black text-white rounded-sm p-1 font-semibold" onClick={() => alert('Mensagem enviada')}>Enviar Mensagem</button>
                             </div>
                         </div>
                     </div>
