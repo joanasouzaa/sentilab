@@ -33,7 +33,7 @@ export default function LoginAluno() {
                         <div className="flex justify-between pt-4">
                                 <button onClick={()=>navigate("/login")}> Voltar</button>
 
-                                <button>Cadastrar</button>
+                                <button onClick={()=>navigate("/cadastar")}>Cadastrar</button>
 
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export default function LoginPage() {
 
@@ -23,7 +23,7 @@ export default function LoginPage() {
 
                         <div className="flex justify-between pt-4">
                             <button onClick={() => navigate("/")}>Voltar</button>
-                            <button onClick={() => navigate("/cadastro")}>Cadastrar</button>
+                            <button onClick={() => navigate("/cadastrar")}>Cadastrar</button>
                         </div>
                     </div>
                 </div>

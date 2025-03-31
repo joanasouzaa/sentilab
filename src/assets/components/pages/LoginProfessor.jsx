@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginProfessor() {
+
+    const navigate = useNavigate();
     return (
         <>
             <div className="flex flex-col min-h-screen">
@@ -20,26 +22,18 @@ export default function LoginProfessor() {
                             <div className="space-y-2">
                                 <div className="flex items-center justify-between">
                                     <label htmlFor="password">Senha</label>
-                                    <Link href="/recuperar-senha" className="text-sm text-primary hover:underline">
-                                        Esqueceu a senha?
-                                    </Link>
+                                    <button onClick={() => navigate("/recuperar-senha")} className="text-sm text-primary hover:underline">Esqueceu a senha?</button>onClick={() => navigate("/recuperar-senha")}
                                 </div>
                                 <input id="password" type="password" />
                             </div>
 
-                            <button className="w-full">Entrar</button>
+                            <button onClick={()=>navigate("/pergil/professor")} className="w-full">Entrar</button>
                         </div>
 
                         <div className="flex justify-between pt-4">
-                            <Link href="/login">
-                                <Button variant="ghost">
-                                    Voltar
-                                </Button>
-                            </Link>
 
-                            <Link href="/cadastro">
-                                <button variant="outline">Cadastrar</button>
-                            </Link>
+                            <button onClick={() => navigate("/")}>Voltar</button>
+                            <button onClick={() => navigate("/cadastrar")}>Cadastrar</button>
                         </div>
                     </div>
                 </div>
