@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 // import styles from "../../styles/Home.module.css"
 import { Link } from "react-router-dom";
 import imagemHome from '../../images/inteligencia_emocional_educacao.png';
+import styles from '../../styles/Home/Home.module.css'
 
 function Home() {
 
@@ -13,7 +14,7 @@ function Home() {
     return (
         <>
             <main className="flex-1">
-                <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-600 justify-items-center">
+                <section className={`${styles.welcome} w-full py-12 md:py-24 lg:py-32 bg-gray-600 justify-items-center`}>
                     <div className="container px-4 md:px-6">
                         <div className="flex flex-col items-center justify-center space-y-4 text-center">
                             <div className="space-y-2">
@@ -23,8 +24,8 @@ function Home() {
                                 </p>
                             </div>
                             <div className="space-x-4">
-                                <button className="bg-black text-white p-1 rounded-sm" onClick={()=> navigate("/login")}>Começar Agora</button>
-                                <button className="border-1 p-1 rounded-sm">Saiba Mais</button>
+                                <button className="bg-black text-white p-2 rounded-sm" onClick={()=> navigate("/login")}>Começar Agora</button>
+                                <button className="border-1 p-2 rounded-sm">Saiba Mais</button>
                             </div>
                         </div>
                     </div>
@@ -51,7 +52,7 @@ function Home() {
                     </div>
                 </section>
 
-                <section id="contato" className="w-full py-12 md:py-24 lg:py-32 bg-gray-600 justify-items-center">
+                <section id="contato" className={`${styles.contact} w-full py-12 md:py-24 lg:py-32 bg-gray-600 justify-items-center`}>
                     <div className="container px-4 md:px-6">
                         <div className="mx-auto max-w-2xl space-y-6">
                             <div className="space-y-2 text-center">
@@ -65,13 +66,13 @@ function Home() {
                                     <label htmlFor="email" className="text-sm font-medium leading-none ">
                                         Email
                                     </label>
-                                    <input id="email" placeholder="seu@email.com" type="email" className="border-1"/>
+                                    <input id="email" placeholder="seu@email.com" type="email" className="border-1 p-1 outline-none rounded-sm"/>
                                 </div>
-                                <div className="space-y-2 flex flex-col">
+                                <div className={`space-y-2 flex flex-col`}>
                                     <label htmlFor="message" className="text-sm font-medium leading-none">Mensagem</label>
-                                    <textarea id="message" placeholder="Digite sua mensagem aqui..." className="min-h-[150px] border-1" />
+                                    <textarea id="message" placeholder="Digite sua mensagem aqui..." className="min-h-[150px] border-1 p-1 resize-none outline-none rounded-sm" />
                                 </div>
-                                <button className="w-full bg-black text-white rounded-sm p-1 font-semibold" onClick={() => alert('Mensagem enviada')}>Enviar Mensagem</button>
+                                <button className="w-full bg-black text-white rounded-sm p-1 font-semibold" onClick={() => alert('Mensagem enviada')} onOpen>Enviar Mensagem</button>
                             </div>
                         </div>
                     </div>
