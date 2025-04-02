@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import logo from '../../images/logo.png';
+import styles from '../../styles/Layout/Navbar.module.css'
 
 
 function Navbar() {
@@ -17,10 +18,10 @@ function Navbar() {
                         <h1 className="text-xl font-bold">SentiLab</h1>
                     </div>
                     {isHome && (
-                        <div className="flex justify-center items-center gap-4">
-                            <a href="#sobre" className="p-1 rounded-sm">Sobre</a>
-                            <a href="#contato" className="justify-center rounded-sm">Contato</a>
-                            <button className="p-1 bg-gray-200 cursor-pointer rounded-sm" onClick={() => navigate("/login")}>Login</button>
+                        <div className="flex justify-center items-center gap-4 mr-2">
+                            <a href="#sobre" className="p-1 rounded-sm font-bold">Sobre</a>
+                            <a href="#contato" className="justify-center rounded-sm font-bold">Contato</a>
+                            <button className={`${styles.btnLogin} p-1 cursor-pointer rounded-sm text-white font-bold`} onClick={() => navigate("/login")}>Login</button>
                         </div>
                     )}
                 </nav>
