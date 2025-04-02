@@ -1,8 +1,4 @@
 import { useNavigate } from "react-router-dom";
-// import MensageHomeForm from "../layout/MensagemHomeForm";
-// import InputMensagemHome from "../layout/InputMensagemHome";
-// import styles from "../../styles/Home.module.css"
-import { Link } from "react-router-dom";
 import imagemHome from '../../images/inteligencia_emocional_educacao.png';
 import styles from '../../styles/Home/Home.module.css'
 
@@ -18,14 +14,14 @@ function Home() {
                     <div className="container px-4 md:px-6">
                         <div className="flex flex-col items-center justify-center space-y-4 text-center">
                             <div className="space-y-2">
-                                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Bem-vindo ao SentiLab</h1>
+                                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl tracking-tight">Bem-vindo ao SentiLab</h1>
                                 <p className="max-w-[700px] text-muted-foreground md:text-xl italic tracking-wider">
                                     Seu laboratório de sentimentos e emoções
                                 </p>
                             </div>
                             <div className="space-x-4">
-                                <button className="bg-black text-white p-2 rounded-sm" onClick={()=> navigate("/login")}>Começar Agora</button>
-                                <button className="border-1 p-2 rounded-sm">Saiba Mais</button>
+                                <button className={`${styles.btnComeçar} font-bold text-white p-2 rounded-sm cursor-pointer hover:shadow-md`} onClick={()=> navigate("/login")}>Começar Agora</button>
+                                <button className={`${styles.btnSaibaMais} font-bold border-1 p-2 rounded-sm cursor-pointer hover:shadow-md`}>Saiba Mais</button>
                             </div>
                         </div>
                     </div>
