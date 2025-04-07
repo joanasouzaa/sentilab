@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginAluno() {
 
@@ -15,25 +15,26 @@ export default function LoginAluno() {
 
                         <div className="space-y-4">
                             <div className="space-y-2">
-                                <label htmlFor="email">Email</label>
-                                <input id="email" placeholder="professor@exemplo.com" type="email" />
+                                <label htmlFor="email" className="block">Email:</label>
+                                <input id="email" placeholder="professor@exemplo.com" type="email" className="border-1 rounded-sm p-1 w-full" />
                             </div>
 
                             <div className="space-y-2">
                                 <div className="flex items-center justify-between">
-                                    <label htmlFor="password">Senha</label>
-                                        <button className="text-sm text-primary hover:underline" onClick={()=>navigate("/recuperar-senha")}>Esqueceu a senha?</button>
+                                    <label htmlFor="password">Senha: </label>
+                                       
                                 </div>
-                                <input id="password" type="password" />
+                                <input id="password" type="password" className="w-full border-1 rounded-sm p-1" />
+                                <button className="text-sm text-primary hover:underline cursor-pointer" onClick={()=>navigate("/recuperar-senha")}>Esqueceu a senha?</button>
                             </div>
 
-                            <button className="w-full" onClick={()=>navigate("/perfil/aluno")}>Entrar</button>
+                            <button className="w-full bg-black text-white p-1 rounded-sm cursor-pointer" onClick={()=>navigate("/perfil/aluno")}>Entrar</button>
                         </div>
 
                         <div className="flex justify-between pt-4">
-                                <button onClick={()=>navigate("/login")}> Voltar</button>
+                                <button onClick={()=>navigate("/login")} className="cursor-pointer"> Voltar</button>
 
-                                <button onClick={()=>navigate("/cadastar")}>Cadastrar</button>
+                                <button onClick={()=>navigate("/cadastar")} className="cursor-pointer">Cadastrar</button>
 
                         </div>
                     </div>
