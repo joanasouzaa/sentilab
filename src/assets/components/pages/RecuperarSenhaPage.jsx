@@ -5,7 +5,7 @@ export default function RecuperarSenhaPage() {
   const navigate = useNavigate();
     return (
       <div className="flex flex-col min-h-screen">
-        <div className="container flex-1 flex items-center justify-center py-12">
+        <div className="container flex-1 flex items-center justify-items-center py-12">
           <div className="mx-auto w-full max-w-md space-y-8">
             <div className="space-y-2 text-center">
               <h1 className="text-3xl font-bold">Recuperar Senha</h1>
