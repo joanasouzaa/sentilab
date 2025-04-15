@@ -30,7 +30,7 @@ function Home() {
                             </div>
                             <div className="space-x-4">
                                 <button className={`${styles.btnComeçar} font-bold text-white p-2 rounded-sm cursor-pointer hover:scale-105`} onClick={() => navigate("/login")}>Começar Agora</button>
-                                <button className={`${styles.btnSaibaMais} font-bold border-1 p-2 rounded-sm cursor-pointer hover:scale-105`}>Saiba Mais</button>
+                                <button className={`${styles.btnSaibaMais} font-bold border-1 p-2 rounded-sm cursor-pointer hover:scale-105`} ><a href="#sobre">Saiba Mais</a></button>
                             </div>
                         </div>
                     </div>
@@ -61,22 +61,26 @@ function Home() {
                     <div className="container px-4 md:px-6">
                         <div className="mx-auto max-w-2xl space-y-6">
                             <div className="space-y-2 text-center">
-                                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Entre em Contato</h2>
+                                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Fale conosco</h2>
                                 <p className="text-muted-foreground md:text-lg">
                                     Tem alguma dúvida ou sugestão? Envie-nos uma mensagem.
                                 </p>
                             </div>
-                            <div className="space-y-4">
+                            <div className={`${styles.formContato} space-y-4 justify-center items-center`}>
                                 <form action="" onSubmit={handleSubmitMessage}>
                                     <div className="space-y-2 flex flex-col">
-                                        <label htmlFor="email" className="text-sm font-medium leading-none ">Email:</label>
+                                        <label htmlFor="email" className="text-sm font-medium leading-none ">Nome:</label>
+                                        <input id="email" placeholder="Nome completo" type="email" className="border-1 p-1  outline-none rounded-sm" />
+                                    </div>
+                                    <div className="space-y-2 flex flex-col mt-5">
+                                        <label htmlFor="email" className="text-sm font-medium leading-none">E-mail:</label>
                                         <input id="email" placeholder="seu@email.com" type="email" className="border-1 p-1 outline-none rounded-sm" />
                                     </div>
-                                    <div className={`space-y-2 flex flex-col`}>
-                                        <label htmlFor="message" className="text-sm font-medium leading-none mt-2">Mensagem:</label>
-                                        <textarea id="message" placeholder="Digite sua mensagem aqui..." className="min-h-[150px] border-1 p-1 resize-none outline-none rounded-sm" />
+                                    <div className="space-y-2 flex flex-col mt-5">
+                                        <label htmlFor="message" className="text-sm font-medium leading-none">Mensagem:</label>
+                                        <textarea id="message" placeholder="Digite sua mensagem aqui..." className="min-h-[150px] p-1 resize-none outline-none rounded-sm border-1" />
                                     </div>
-                                    <button className="w-full bg-black text-white rounded-sm p-1 font-semibold mt-5 hover:scale-102 cursor-pointer" onOpen>Enviar Mensagem</button>
+                                    <button className={`${styles.btnEnviarMensagem} w-full text-white rounded-sm p-1 font-semibold mt-5 hover:scale-102 cursor-pointer`} onOpen>Enviar Mensagem</button>
                                 </form>
                             </div>
                         </div>
@@ -97,14 +101,14 @@ function Home() {
                                 </p>
                             </div>
                             <div className="flex flex-col sm:flex-row sm:justify-center sm:space-x-2">
-                                    <button className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition" onClick={()=>navigate("/login")}>Fazer Login</button>
+                                    <button className={`${styles.btnLoginMensage} w-full text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition cursor-pointer`} onClick={()=>navigate("/login")}>Fazer Login</button>
                                 
-                                    <button className="w-full border border-gray-300 px-4 py-2 rounded-lg hover:bg-gray-100 transition" onClick={()=>navigate("/cadastrar")}>Cadastrar</button>
+                                    <button className="w-full border border-gray-300 px-4 py-2 rounded-lg hover:bg-gray-100 transition cursor-pointer" onClick={()=>navigate("/cadastro")}>Cadastrar</button>
                             </div>
                             <div className="mt-4 text-center">
                                 <button
                                     onClick={() => setIsDialogOpen(false)}
-                                    className="text-sm text-gray-500 underline hover:text-gray-700">Fechar</button>
+                                    className="text-sm text-gray-500 underline hover:text-gray-700 cursor-pointer">Fechar</button>
                             </div>
                         </div>
                     </div>

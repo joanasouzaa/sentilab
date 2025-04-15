@@ -23,7 +23,7 @@ function App() {
         <Route path="/perfil/professor" element={<PerfilProfessorPage/>}/>
         <Route path="/perfil/aluno" element={<PerfilAlunoPage/>}/>
         <Route path="/recuperar-senha" element={<RecuperarSenhaPage/>}/>
-        <Route path="/cadastrar" element={<CadastroPage/>}/>
+        <Route path="/cadastro" element={<CadastroPage/>}/>
       </Routes>
       <Footer />
     </Router>

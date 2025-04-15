@@ -6,7 +6,14 @@
     background-color: #D97C2B;
 }
 
-
-.btnSaibaMais{
+.btnSaibaMais, .btnLoginMensage, .btnEnviarMensagem{
     border-color: #D97C2B;
+}
+
+.btnLoginMensage{
+    background-color: #D97C2B;
+}
+
+.btnEnviarMensagem{
+    background-color: #D97C2B;
 }

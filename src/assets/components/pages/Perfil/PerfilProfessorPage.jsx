@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { LogOut } from 'lucide-react';
 
 export default function PerfilProfessorPage() {
 
@@ -12,15 +13,17 @@ export default function PerfilProfessorPage() {
                         <div className="flex flex-col items-center space-y-2">
                             <div className="h-24 w-24 rounded-full bg-muted flex items-center justify-center">
                             </div>
-                            <h2 className="text-xl font-bold">Prof. João Silva</h2>
-                            <p className="text-sm text-muted-foreground">Matemática</p>
+                            <h2 className="text-xl font-bold">Prof. {}</h2>
+                            <p className="text-sm text-muted-foreground"></p>
                         </div>
 
-                        <div className="space-y-2">
-                            <button variant="outline" className="w-full justify-start">Perfil</button>
-                            <button variant="outline" className="w-full justify-start">Conteúdos</button>
-                            <button variant="outline" className="w-full justify-start">Configurações</button>
-                            <button variant="outline" className="w-full justify-start text-destructive" onClick={()=>navigate("/")}>Sair</button>
+                        <div className="space-y-2 p-2 m-1">
+                            <button variant="outline" className="w-full justify-start outline cursor-pointer">Perfil</button>
+                            <button variant="outline" className="w-full justify-start outline cursor-pointer">Conteúdos</button>
+                            <button variant="outline" className="w-full justify-start outline cursor-pointer">Configurações</button>
+                            <button variant="outline" className="w-full text-destructive outline cursor-pointer outline-red-400 hover:bg-red-300" onClick={()=>navigate("/")}>   
+                            Sair
+                            </button>
                         </div>
                     </div>
 

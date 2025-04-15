@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 
+
 export default function CadastroPage() {
 
 const navigate = useNavigate();
@@ -54,7 +55,7 @@ const [isDialogOpen, setIsDialogOpen] = useState(false);
                         <div className="space-y-2">
                             <label htmlFor="school">Qual sua escola?</label>
                             <select name="school" id="school" className="w-full border-1 rounded-sm">
-                                <option value="Selecionar" disabled>Selecionar</option>
+                                <option value="Selecionar" >Selecionar</option>
                                 <option value="valor1">Valor1</option>
                                 <option value="valor2">Valor2</option>
                                 <option value="valor3">Valor3</option>
@@ -101,8 +102,8 @@ const [isDialogOpen, setIsDialogOpen] = useState(false);
                                     Acesse agora sua conta
                                 </p>
                             </div>
-                            <div className="flex flex-col sm:flex-row sm:justify-center sm:space-x-2">
-                                    <button className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition" onClick={()=>navigate("/login")}>Fazer Login</button>
+                            <div className={"flex flex-col sm:flex-row sm:justify-center sm:space-x-2"}>
+                                    <button className={`${styles.btnLoginCadastro} w-full text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition`} onClick={()=>navigate("/login")}>Fazer Login</button>
                             </div>
                             <div className="mt-4 text-center">
                                 <button
