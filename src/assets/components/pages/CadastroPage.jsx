@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import styles from "../../styles/Cadastro/CadastroPage.module.css"
 
 
 export default function CadastroPage() {
@@ -16,15 +17,15 @@ const [isDialogOpen, setIsDialogOpen] = useState(false);
 
 
     return (
-        <div className="flex flex-col min-h-screen">
-            <div className="container flex-1 flex items-center justify-center py-12">
-                <div className="mx-auto w-full max-w-md space-y-8">
+    <main className="flex flex-col min-h-screen items-center">
+            <div className="container flex-1 flex items-center justify-center py-12 bg-gray-100 rounded-lg">
+                <div className={`mx-auto w-full max-w-md space-y-8 justify-center`}>
                     <div className="space-y-2 text-center">
                         <h1 className="text-3xl font-bold">Cadastro</h1>
-                        <p className="text-muted-foreground">Crie sua conta na EduPlataforma</p>
+                        <p className="text-muted-foreground">Crie sua conta no SentiLab</p>
                     </div>
 
-                    <form className="space-y-4" onSubmit={handleSubmitMessage}>
+                    <form className={`${styles.formCadastro} space-y-4 `} onSubmit={handleSubmitMessage}>
                         <div className="grid grid-cols-2 gap-15">
                             <div className="space-y-2">
                                 <label htmlFor="firstName" className="">Nome</label>
@@ -75,15 +76,15 @@ const [isDialogOpen, setIsDialogOpen] = useState(false);
                             </div>
                         </div>
 
-                        <button className="w-full bg-black text-white rounded-sm p-1" onOpen>Cadastrar</button>
+                        <button className={`${styles.btnFormCadastro} w-full font-bold text-white rounded-sm p-1 hover:scale-105`} onOpen>Cadastrar</button>
                     </form>
 
                     <div className="flex justify-between pt-4">
-                        <button onClick={()=>navigate("/")}>Voltar</button>
+                        <button className="cursor-pointer hover:scale-105" onClick={()=>navigate("/")}>Voltar</button>
 
                         <div className="text-sm text-muted-foreground">
                             Já tem uma conta?{" "}
-                            <button className="text-primary hover:underline" onClick={()=>navigate("/login")}>Faça login</button>
+                            <button className="text-primary cursor-pointer hover:underline" onClick={()=>navigate("/login")}>Faça login</button>
                         </div>
                     </div>
                 </div>
@@ -113,6 +114,6 @@ const [isDialogOpen, setIsDialogOpen] = useState(false);
                         </div>
                     </div>
                 )}
-        </div>
+        </main>
     )
 }
