@@ -5,7 +5,7 @@ export default function LoginAluno() {
     const navigate = useNavigate();
     return (
         <>
-            <div className="flex flex-col min-h-screen">
+            <div className="flex flex-col min-h-screen items-center">
                 <div className="container flex-1 flex items-center justify-center py-12">
                     <div className="mx-auto w-full max-w-md space-y-8">
                         <div className="space-y-2 text-center">
@@ -16,25 +16,25 @@ export default function LoginAluno() {
                         <div className="space-y-4">
                             <div className="space-y-2">
                                 <label htmlFor="email" className="block">Email:</label>
-                                <input id="email" placeholder="professor@exemplo.com" type="email" className="border-1 rounded-sm p-1 w-full" />
+                                <input id="email" placeholder="professor@exemplo.com" type="email" className="border-1 rounded-sm p-1 w-full outline-none   " />
                             </div>
 
                             <div className="space-y-2">
                                 <div className="flex items-center justify-between">
                                     <label htmlFor="password">Senha: </label>
-                                       
+
                                 </div>
-                                <input id="password" type="password" className="w-full border-1 rounded-sm p-1" />
-                                <button className="text-sm text-primary hover:underline cursor-pointer" onClick={()=>navigate("/recuperar-senha")}>Esqueceu a senha?</button>
+                                <input id="password" type="password" className="w-full border-1 rounded-sm p-1 outline-none" />
+                                <button className="text-sm text-primary hover:underline" onClick={() => navigate("/recuperar-senha")}>Esqueceu a senha?</button>
                             </div>
 
-                            <button className="w-full bg-black text-white p-1 rounded-sm cursor-pointer" onClick={()=>navigate("/perfil/aluno")}>Entrar</button>
+                            <button className="w-full bg-black text-white p-1 rounded-sm cursor-pointer" onClick={() => navigate("/perfil/aluno")}>Entrar</button>
                         </div>
 
                         <div className="flex justify-between pt-4">
-                                <button onClick={()=>navigate("/login")} className="cursor-pointer"> Voltar</button>
+                            <button onClick={() => navigate("/login")} className="cursor-pointer"> Voltar</button>
 
-                                <button onClick={()=>navigate("/cadastar")} className="cursor-pointer">Cadastrar</button>
+                            <button onClick={() => navigate("/cadastro")} className="cursor-pointer">Cadastrar</button>
 
                         </div>
                     </div>

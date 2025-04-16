@@ -1,19 +1,15 @@
+:root{
+    --color-bg-all: #FFDC6B;
+}
+
 .welcome, .contact{
-    background-color: #FFDC6B;
+    background-color: var(--color-bg-all);
 }
 
-.btnComeçar{
-    background-color: #D97C2B;
+.btnComeçar, .btnLoginMensage, .btnEnviarMensagem{
+   background-color: #D97C2B;
 }
 
-.btnSaibaMais, .btnLoginMensage, .btnEnviarMensagem{
+.btnSaibaMais{
     border-color: #D97C2B;
-}
-
-.btnLoginMensage{
-    background-color: #D97C2B;
-}
-
-.btnEnviarMensagem{
-    background-color: #D97C2B;
 }

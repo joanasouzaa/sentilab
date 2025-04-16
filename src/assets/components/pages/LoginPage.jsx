@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import styles from "../../styles/Login/LoginPage.module.css"
 
 export default function LoginPage() {
 
@@ -6,7 +7,7 @@ export default function LoginPage() {
 
     return (
         <>
-            <div className="flex flex-col min-h-screen">
+            <div className={`${styles.bg_container} flex flex-col min-h-screen items-center `}>
                 <div className="container flex-1 flex items-center py-12">
                     <div className="mx-auto w-full max-w-md space-y-8 items-center justify-center">
                         <div className="space-y-2 text-center">
@@ -22,8 +23,8 @@ export default function LoginPage() {
                         </div>
 
                         <div className="flex justify-between pt-4">
-                            <button className="cursor-pointer" onClick={() => navigate("/")}>Voltar</button>
-                            <button className="bg-black text-white p-2 rounded-sm cursor-pointer" onClick={() => navigate("/cadastrar")}>Cadastrar</button>
+                            <button className="cursor-pointer hover:scale-105" onClick={() => navigate("/")}>Voltar</button>
+                            <button className={`${styles.btnCadastrar} text-white font-bold p-2 rounded-sm cursor-pointer`} onClick={() => navigate("/cadastrar")}>Cadastrar</button>
                         </div>
                     </div>
                 </div>
