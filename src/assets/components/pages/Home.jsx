@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import imagemHome from '../../images/inteligencia_emocional_educacao.png';
-import styles from '../../styles/Home/Home.module.css'
 
 function Home() {
 
@@ -11,15 +10,13 @@ function Home() {
 
     const handleSubmitMessage = (e) => {
         e.preventDefault();
-        // Aqui você pode adicionar qualquer outra lógica de envio
         setIsDialogOpen(true);
     };
-
 
     return (
         <>
             <main className="flex-1">
-                <section className={`${styles.welcome} w-full py-12 md:py-24 lg:py-32 bg-gray-600 justify-items-center`}>
+                <section className="bg-[#FFDC6B] w-full py-12 md:py-24 lg:py-32 justify-items-center">
                     <div className="container px-4 md:px-6">
                         <div className="flex flex-col items-center justify-center space-y-4 text-center">
                             <div className="space-y-2">
@@ -29,8 +26,8 @@ function Home() {
                                 </p>
                             </div>
                             <div className="space-x-4">
-                                <button className={`${styles.btnComeçar} font-bold text-white p-2 rounded-sm cursor-pointer hover:scale-105`} onClick={() => navigate("/login")}>Começar Agora</button>
-                                <button className={`${styles.btnSaibaMais} font-bold border-1 p-2 rounded-sm cursor-pointer hover:scale-105`} ><a href="#sobre">Saiba Mais</a></button>
+                                <button className="bg-[#D97C2B] font-bold text-white p-2 rounded-sm cursor-pointer hover:scale-105" onClick={() => navigate("/login")}>Começar Agora</button>
+                                <button className="border-[#D97C2B] font-bold border-1 p-2 rounded-sm cursor-pointer hover:scale-105"><a href="#sobre">Saiba Mais</a></button>
                             </div>
                         </div>
                     </div>
@@ -57,7 +54,7 @@ function Home() {
                     </div>
                 </section>
 
-                <section id="contato" className={`${styles.contact} w-full py-12 md:py-24 lg:py-32 bg-gray-600 justify-items-center`}>
+                <section id="contato" className="bg-[#FFDC6B] w-full py-12 md:py-24 lg:py-32 justify-items-center">
                     <div className="container px-4 md:px-6">
                         <div className="mx-auto max-w-2xl space-y-6">
                             <div className="space-y-2 text-center">
@@ -66,21 +63,21 @@ function Home() {
                                     Tem alguma dúvida ou sugestão? Envie-nos uma mensagem.
                                 </p>
                             </div>
-                            <div className={`${styles.formContato} space-y-4 justify-center items-center`}>
+                            <div className="space-y-4 justify-center items-center">
                                 <form action="" onSubmit={handleSubmitMessage}>
                                     <div className="space-y-2 flex flex-col">
-                                        <label htmlFor="email" className="text-sm font-medium leading-none ">Nome:</label>
-                                        <input id="email" placeholder="Nome completo" type="email" className="border-1 p-1  outline-none rounded-sm" />
+                                        <label htmlFor="email" className="text-sm font-medium leading-none">Nome:</label>
+                                        <input id="full-name" placeholder="Nome completo" type="text" className="border-1 p-1  outline-none rounded-sm" required />
                                     </div>
                                     <div className="space-y-2 flex flex-col mt-5">
                                         <label htmlFor="email" className="text-sm font-medium leading-none">E-mail:</label>
-                                        <input id="email" placeholder="seu@email.com" type="email" className="border-1 p-1 outline-none rounded-sm" />
+                                        <input id="email" placeholder="seu@email.com" type="email" className="border-1 p-1 outline-none rounded-sm" required />
                                     </div>
                                     <div className="space-y-2 flex flex-col mt-5">
                                         <label htmlFor="message" className="text-sm font-medium leading-none">Mensagem:</label>
-                                        <textarea id="message" placeholder="Digite sua mensagem aqui..." className="min-h-[150px] p-1 resize-none outline-none rounded-sm border-1" />
+                                        <textarea id="message" placeholder="Digite sua mensagem aqui..." className="min-h-[150px] p-1 resize-none outline-none rounded-sm border-1" required />
                                     </div>
-                                    <button className={`${styles.btnEnviarMensagem} w-full text-white rounded-sm p-1 font-semibold mt-5 hover:scale-102 cursor-pointer`} onOpen>Enviar Mensagem</button>
+                                    <button className="bg-[#D97C2B] w-full text-white rounded-sm p-1 font-semibold mt-5 hover:scale-102 cursor-pointer">Enviar Mensagem</button>
                                 </form>
                             </div>
                         </div>
@@ -101,13 +98,13 @@ function Home() {
                                 </p>
                             </div>
                             <div className="flex flex-col sm:flex-row sm:justify-center sm:space-x-2">
-                                    <button className={`${styles.btnLoginMensage} w-full text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition cursor-pointer`} onClick={()=>navigate("/login")}>Fazer Login</button>
-                                
-                                    <button className="w-full border border-gray-300 px-4 py-2 rounded-lg hover:bg-gray-100 transition cursor-pointer" onClick={()=>navigate("/cadastro")}>Cadastrar</button>
+                                <button className="bg-[#D97C2B] w-full text-white px-4 py-2 rounded-lg hover:scale-105 hover:font-bold  transition cursor-pointer" onClick={() => navigate("/login")}>Fazer Login</button>
+
+                                <button className="w-full border border-gray-300 px-4 py-2 rounded-lg hover:bg-gray-100 hover:scale-105 hover:font-bold transition cursor-pointer" onClick={() => navigate("/cadastro")}>Cadastrar</button>
                             </div>
                             <div className="mt-4 text-center">
                                 <button
-                                    onClick={() => setIsDialogOpen(false)}
+                                    onSubmit={handleSubmitMessage(false)}
                                     className="text-sm text-gray-500 underline hover:text-gray-700 cursor-pointer">Fechar</button>
                             </div>
                         </div>
