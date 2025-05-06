@@ -24,7 +24,7 @@ export default function LoginPage() {
 
                         <div className="flex justify-between pt-4">
                             <button className="cursor-pointer hover:scale-105 hover:underline" onClick={() => navigate("/")}>Voltar</button>
-                            <button className="bg-[#D97C2B] text-white font-bold p-2 rounded-sm cursor-pointer" onClick={() => navigate("/cadastrar")}>Cadastrar</button>
+                            <button className="bg-[#D97C2B] text-white font-bold p-2 rounded-sm cursor-pointer" onClick={() => navigate("/cadastro")}>Cadastrar</button>
                         </div>
                     </div>
                 </div>

@@ -6,11 +6,40 @@ function Home() {
 
     const navigate = useNavigate();
 
+    const [nome_completo, setNomeCompleto] = useState("");
+    const [email, setEmail] = useState("");
+    const [mensagem, setMensagem] = useState("");
+
+
     const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-    const handleSubmitMessage = (e) => {
+    const handleSubmitMessage = async (e) => {
         e.preventDefault();
-        setIsDialogOpen(true);
+        
+        try{
+            const response = await fetch("http://localhost:3001/api/mensagem", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nome_completo,
+                    email,
+                    mensagem    
+                }),
+            });
+            if(response.ok){
+                setIsDialogOpen(true);
+                setNomeCompleto("");
+                setEmail("");
+                setMensagem("")
+            }else{
+                alert("Erro ao enviar mensagem.")
+            }
+        } catch(err){
+            console.error("Erro ao enviar mensagem:", err)
+            alert("Erro ao enviar mensagem.")
+        }
     };
 
     return (
@@ -66,18 +95,22 @@ function Home() {
                             <div className="space-y-4 justify-center items-center">
                                 <form action="" onSubmit={handleSubmitMessage}>
                                     <div className="space-y-2 flex flex-col">
-                                        <label htmlFor="email" className="text-sm font-medium leading-none">Nome:</label>
-                                        <input id="full-name" placeholder="Nome completo" type="text" className="border-1 p-1  outline-none rounded-sm" required />
+                                        <label htmlFor="nome_completo" className="text-sm font-medium leading-none">Nome:</label>
+                                        <input id="nome_completo" placeholder="Nome completo" type="text" className="border-1 p-1  outline-none rounded-sm" value={nome_completo} onChange={(e) => setNomeCompleto(e.target.value)} required />
                                     </div>
                                     <div className="space-y-2 flex flex-col mt-5">
                                         <label htmlFor="email" className="text-sm font-medium leading-none">E-mail:</label>
-                                        <input id="email" placeholder="seu@email.com" type="email" className="border-1 p-1 outline-none rounded-sm" required />
+                                        <input id="email" placeholder="seu@email.com" type="email" className="border-1 p-1 outline-none rounded-sm" value={email} onChange={(e) => setEmail(e.target.value)} required />
                                     </div>
                                     <div className="space-y-2 flex flex-col mt-5">
-                                        <label htmlFor="message" className="text-sm font-medium leading-none">Mensagem:</label>
-                                        <textarea id="message" placeholder="Digite sua mensagem aqui..." className="min-h-[150px] p-1 resize-none outline-none rounded-sm border-1" required />
+                                        <label htmlFor="mensagem" className="text-sm font-medium leading-none">Mensagem:</label>
+                                        <textarea id="mensagem" placeholder="Digite sua mensagem aqui..." className="min-h-[150px] p-1 resize-none outline-none rounded-sm border-1" value={mensagem} onChange={(e) => setMensagem(e.target.value)} required />
                                     </div>
-                                    <button className="bg-[#D97C2B] w-full text-white rounded-sm p-1 font-semibold mt-5 hover:scale-102 cursor-pointer">Enviar Mensagem</button>
+                                    <button className="bg-[#D97C2B] w-full text-white rounded-sm p-1 font-semibold mt-5 hover:scale-102 cursor-pointer items-center">
+                                       
+                                        <span>Enviar Mensagem</span>
+
+                                    </button>
                                 </form>
                             </div>
                         </div>
@@ -104,7 +137,7 @@ function Home() {
                             </div>
                             <div className="mt-4 text-center">
                                 <button
-                                    onSubmit={handleSubmitMessage(false)}
+                                    onClick={() => setIsDialogOpen(false)}
                                     className="text-sm text-gray-500 underline hover:text-gray-700 cursor-pointer">Fechar</button>
                             </div>
                         </div>
