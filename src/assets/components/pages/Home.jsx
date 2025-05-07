@@ -15,8 +15,8 @@ function Home() {
 
     const handleSubmitMessage = async (e) => {
         e.preventDefault();
-        
-        try{
+
+        try {
             const response = await fetch("http://localhost:3001/api/mensagem", {
                 method: "POST",
                 headers: {
@@ -25,18 +25,18 @@ function Home() {
                 body: JSON.stringify({
                     nome_completo,
                     email,
-                    mensagem    
+                    mensagem
                 }),
             });
-            if(response.ok){
+            if (response.ok) {
                 setIsDialogOpen(true);
                 setNomeCompleto("");
                 setEmail("");
                 setMensagem("")
-            }else{
+            } else {
                 alert("Erro ao enviar mensagem.")
             }
-        } catch(err){
+        } catch (err) {
             console.error("Erro ao enviar mensagem:", err)
             alert("Erro ao enviar mensagem.")
         }
@@ -107,7 +107,7 @@ function Home() {
                                         <textarea id="mensagem" placeholder="Digite sua mensagem aqui..." className="min-h-[150px] p-1 resize-none outline-none rounded-sm border-1" value={mensagem} onChange={(e) => setMensagem(e.target.value)} required />
                                     </div>
                                     <button className="bg-[#D97C2B] w-full text-white rounded-sm p-1 font-semibold mt-5 hover:scale-102 cursor-pointer items-center">
-                                       
+
                                         <span>Enviar Mensagem</span>
 
                                     </button>

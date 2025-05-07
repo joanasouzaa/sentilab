@@ -1,12 +1,46 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function LoginProfessor() {
 
     const navigate = useNavigate();
 
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
 
-    const handleLogin = (e) =>{
-        e.preventDefault
+    const handleLogin = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await fetch("http://localhost:3001/api/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email,
+                    senha
+                })
+            });
+            const data = await response.json()
+            if (response.ok) {
+                localStorage.setItem("token", data.token)
+                if(data.tipo === "professor"){
+                    navigate("/perfil/professor")
+                }
+            } else {
+                console.log("Erro: ", data.mensagem)
+                alert("E-mail ou senha inválidos")
+                setEmail("");
+                setSenha("")
+            }
+
+        } catch (err) {
+            console.err("Erro ao fazer login: " + err)
+            alert("Erro ao fazer login")
+        }
+
+
     }
 
 
@@ -21,22 +55,22 @@ export default function LoginProfessor() {
                             <p className="text-muted-foreground">Entre para acessar sua conta</p>
                         </div>
 
-                        <form className="space-y-4">
+                        <form className="space-y-4" onSubmit={handleLogin}>
                             <div className="space-y-2">
                                 <label htmlFor="email" className="block">Email:</label>
-                                <input id="email" placeholder="professor@exemplo.com" type="email" className="border-1 rounded-sm w-full p-1 outline-none" required />
+                                <input id="email" placeholder="professor@exemplo.com" type="email" className="border-1 rounded-sm w-full p-1 outline-none" required value={email} onChange={(e) => setEmail(e.target.value)} />
                             </div>
 
                             <div className="space-y-2">
-                                <div className="flex items-center justify-between">
-                                    <label htmlFor="password" className="block">Senha:</label>
+                                {/* <div className="flex items-center justify-between"> */}
+                                <label htmlFor="password" className="block">Senha:</label>
 
-                                </div>
-                                <input id="password" type="password" className="border-1 rounded-sm w-full p-1 outline-none" required />
+                                <input id="password" type="password" className="border-1 rounded-sm w-full p-1 outline-none" required value={senha} onChange={(e) => setSenha(e.target.value)} />
+                                {/* </div> */}
                                 <button onClick={() => navigate("/recuperar-senha")} className="text-sm text-primary hover:underline">Esqueceu a senha?</button>
                             </div>
 
-                            <button onSubmit={handleLogin} className="w-full text-white font-bold rounded-sm p-1 cursor-pointer bg-[#D97C2B]">Entrar</button>
+                            <button className="w-full text-white font-bold rounded-sm p-1 cursor-pointer bg-[#D97C2B]">Entrar</button>
                         </form>
 
                         <div className="flex justify-between pt-4">
