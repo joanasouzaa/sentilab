@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import imagemHome from '../../images/inteligencia_emocional_educacao.png';
+import imagemHome from '../../../images/inteligencia_emocional_educacao.png'
 
 function Home() {
 

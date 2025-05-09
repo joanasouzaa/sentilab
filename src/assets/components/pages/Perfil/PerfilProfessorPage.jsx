@@ -1,9 +1,28 @@
 import { useNavigate } from "react-router-dom";
-import { LogOut } from 'lucide-react';
+ import ImportarImagem from "../../layout/ImportarImagem";
+
 
 export default function PerfilProfessorPage() {
 
     const navigate = useNavigate();
+    const enviarImagem = async (imagem, id) => {
+        const formData = new FormData();
+        formData.append('imagem', imagem);
+        formData.append('id', id);
+      
+        try {
+          const resposta = await axios.post('http://localhost:3001/api/foto', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          });
+          console.log('Upload bem-sucedido:', resposta.data);
+        } catch (erro) {
+          console.error('Erro no upload:', erro);
+        }
+      };
+      
+
     return (
         <div className="flex flex-col min-h-screen">
 
@@ -11,9 +30,9 @@ export default function PerfilProfessorPage() {
                 <div className="grid gap-8 md:grid-cols-[250px_1fr]">
                     <div className="space-y-6">
                         <div className="flex flex-col items-center space-y-2">
-                            <div className="h-24 w-24 rounded-full bg-muted flex items-center justify-center">
-                            </div>
-                            <h2 className="text-xl font-bold">Prof. {}</h2>
+                            <ImportarImagem /> 
+                          
+                            <h2 className="text-xl font-bold">Prof. { }</h2>
                             <p className="text-sm text-muted-foreground"></p>
                         </div>
 
@@ -21,8 +40,8 @@ export default function PerfilProfessorPage() {
                             <button variant="outline" className="w-full justify-start outline cursor-pointer">Perfil</button>
                             <button variant="outline" className="w-full justify-start outline cursor-pointer">Conteúdos</button>
                             <button variant="outline" className="w-full justify-start outline cursor-pointer">Configurações</button>
-                            <button variant="outline" className="w-full text-destructive outline cursor-pointer outline-red-400 hover:bg-red-300" onClick={()=>navigate("/")}>   
-                            Sair
+                            <button variant="outline" className="w-full text-destructive outline cursor-pointer outline-red-400 hover:bg-red-300" onClick={() => navigate("/")}>
+                                Sair
                             </button>
                         </div>
                     </div>

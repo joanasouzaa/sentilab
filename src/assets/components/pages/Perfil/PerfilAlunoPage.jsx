@@ -1,13 +1,13 @@
+import ImportarImagem from "../../layout/ImportarImagem";
+
 export default function PerfilAlunoPage() {
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen items-center">
             <main className="flex-1 container py-8">
                 <div className="grid gap-8 md:grid-cols-[250px_1fr]">
                     <div className="space-y-6">
                         <div className="flex flex-col items-center space-y-2">
-                            <div className="h-24 w-24 rounded-full bg-gray-200 flex items-center justify-center">
-                                <span className="text-gray-500">👤</span>
-                            </div>
+                           <ImportarImagem/>
                             <h2 className="text-xl font-bold">Maria Santos</h2>
                             <p className="text-sm text-gray-500">2º Ano - Turma B</p>
                         </div>
