@@ -31,7 +31,7 @@ export default function PerfilProfessorPage() {
                     <div className="space-y-6">
                         <div className="flex flex-col items-center space-y-2">
                             <ImportarImagem /> 
-                          
+                          <button onClick={()=>enviarImagem(imagem)}>Alterar foto</button>
                             <h2 className="text-xl font-bold">Prof. { }</h2>
                             <p className="text-sm text-muted-foreground"></p>
                         </div>
